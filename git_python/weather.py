@@ -4,7 +4,7 @@ import requests
 import pandas as pd
 import json
 
-# client = OpenAI(api_key="sk-24b44367466949c08c22bd176b9974e6", base_url="https://api.deepseek.com")
+
 base_url = "https://restapi.amap.com/v3/weather/weatherInfo"
 
 def get_location_id(city_name):
@@ -34,7 +34,7 @@ def get_weather_data(location_id):
         return None
 
     params = {
-        "key": "ef96e661e28431337d3840b195e2aa77",
+        "key": "240352ef96e661e28431337d3840b195e2aa77",
         "city":location_id,
         "extensions":"base",
         "output":"JSON"
