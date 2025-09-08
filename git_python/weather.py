@@ -5,6 +5,7 @@ import pandas as pd
 import json
 
 
+
 base_url = "https://restapi.amap.com/v3/weather/weatherInfo"
 
 def get_location_id(city_name):

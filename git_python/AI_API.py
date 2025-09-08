@@ -8,7 +8,7 @@ response = client.chat.completions.create(
     model="deepseek-chat",
     messages=[
         {"role": "system", "content": "You are a helpful assistant"},
-        {"role": "user", "content": "你可以帮我做什么"},
+        {"role": "user", "content": "你可以告诉我今天山西省晋中市榆次区的天气吗"},
     ],
     stream=False
 )

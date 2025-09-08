@@ -5,6 +5,7 @@ class WeatherGui:
         self.root = root
         self.root.geometry('500x500')
         self.root.title('天气')
+        self.root.iconbitmap('weather_ico.ico')
 
         self.label = Label(root, text='查询地点：', font=('Arial', 14))
         self.label.place(x=5, y=15)
