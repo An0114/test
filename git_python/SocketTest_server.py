@@ -18,7 +18,10 @@ def main():
                 data = conn.recv(1024)
                 if not data:
                     break
-                conn.sendall(data)
+                else:
+                    print(data)
+                    push_data = '你好这个世界'
+                    conn.sendall(push_data.encode('UTF-8'))
 
 
 if __name__ == '__main__':
