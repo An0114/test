@@ -2,27 +2,15 @@ from tkinter import *
 import WeatherGui as wg
 import requests
 import json
+import pandas as pd
 
 base_url = "https://restapi.amap.com/v3/weather/weatherInfo"
+df = pd.read_excel("D:\新建文件夹\OneDrive\桌面\python file\git_project\git_python\城市编码表\AMap_adcode_citycode.xlsx")
+
 
 def get_location_id(city_name):
     # 这里是一个简单的城市adcode映射字典，实际使用时建议使用完整的城市编码表
-    city_adcode_map = {
-        "北京": "110000",
-        "上海市": "310000",
-        "广州": "440100",
-        "深圳": "440300",
-        "杭州": "330100",
-        "成都": "510100",
-        "武汉": "420100",
-        "西安": "610100",
-        "南京": "320100",
-        "苏州": "320500",
-        "天津": "120000",
-        "重庆": "500000",
-        "宁波": "330200"
-        # 可以根据需要添加更多城市
-    }
+    city_adcode_map = dict(zip(df['中文名'], df['adcode']))
 
     return city_adcode_map.get(city_name, None)
 
