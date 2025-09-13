@@ -11,6 +11,15 @@ def main():
     print(data)
     data_ad = data["adcode"]
     print(data_ad)
+    '''
+    判断status/info/infocode是否为1/ok/10000=>是否可以得到地点信息
+    判断count是否为0=>无此地点
+                为1=>为唯一正选地点
+                为1以上=>列出每一项结果的formatted_address/以逗号隔开country,province,city,district,输入地点/利用字符串切片形成以逗号隔开的形式
+    供用户进行选择正确地点
+    获取正确地点的adcode
+    进行其他操作=>地点定位/天气预报等
+    '''
 
 
 
