@@ -1,11 +1,9 @@
-from openai import OpenAI
-import openai
 import requests
-import pandas as pd
 import json
+import os
 
 
-
+key = os.environ.get("DASHSCOPE_GEO_API_KEY")
 base_url = "https://restapi.amap.com/v3/weather/weatherInfo"
 
 def get_location_id(city_name):
@@ -35,7 +33,7 @@ def get_weather_data(location_id):
         return None
 
     params = {
-        "key": "240352ef96e661e28431337d3840b195e2aa77",
+        "key": key,
         "city":location_id,
         "extensions":"base",
         "output":"JSON"

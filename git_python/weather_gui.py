@@ -3,7 +3,9 @@ import WeatherGui as wg
 import requests
 import json
 import pandas as pd
+import os
 
+key = os.environ.get("DASHSCOPE_GEO_API_KEY")
 base_url = "https://restapi.amap.com/v3/weather/weatherInfo"
 df = pd.read_excel("D:\新建文件夹\OneDrive\桌面\python file\git_project\git_python\城市编码表\AMap_adcode_citycode.xlsx")
 
@@ -20,7 +22,7 @@ def get_weather_data(location_id):
         return None
 
     params = {
-        "key": "ef96e661e28431337d3840b195e2aa77",
+        "key": key,
         "city":location_id,
         "extensions":"base",
         "output":"JSON"
