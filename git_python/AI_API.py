@@ -1,5 +1,7 @@
 # Please install OpenAI SDK first: `pip3 install openai`
 import os
+import time
+
 from openai import OpenAI
 
 api_key = os.getenv("DASHSCOPE_DEEPSEEK_API_KEY")
@@ -18,4 +20,5 @@ response = client.chat.completions.create(
 text = response.choices[0].message.content
 for ch in text:
     print(ch, end='', flush=True)
+    time.sleep(0.1)
 
