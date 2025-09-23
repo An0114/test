@@ -4,15 +4,18 @@ from openai import OpenAI
 
 api_key = os.getenv("DASHSCOPE_DEEPSEEK_API_KEY")
 url = "https://api.deepseek.com"
-client = OpenAI(api_key=api_key, base_url=url)
 
+client = OpenAI(api_key=api_key, base_url=url)
 response = client.chat.completions.create(
     model="deepseek-chat",
     messages=[
-        {"role": "system", "content": "你是天气预报助手"},
-        {"role": "user", "content": "榆次区的天气怎么样"},
+        {"role": "system", "content": "你是助手"},
+        {"role": "user", "content": "世界第一高的山是什么"},
     ],
-    stream=False
+    # stream=False
 )
 
-print(response.choices[0].message.content)
+text = response.choices[0].message.content
+for ch in text:
+    print(ch, end='', flush=True)
+
