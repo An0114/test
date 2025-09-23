@@ -25,6 +25,9 @@
   <property name="windowTitle">
    <string>chatAI</string>
   </property>
+  <property name="windowIcon">
+   <iconset theme="QIcon::ThemeIcon::AudioCard"/>
+  </property>
   <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
