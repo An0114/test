@@ -19,6 +19,9 @@ response = client.chat.completions.create(
 
 text = response.choices[0].message.content
 for ch in text:
-    print(ch, end='', flush=True)
-    time.sleep(0.1)
+    if ch == '\n':
+        print()
+    else:
+        print(ch, end='', flush=True)
+        time.sleep(0.1)
 
