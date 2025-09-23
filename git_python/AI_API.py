@@ -6,16 +6,22 @@ from openai import OpenAI
 api_key = os.getenv("DASHSCOPE_DEEPSEEK_API_KEY")
 url = "https://api.deepseek.com"
 client = OpenAI(api_key=api_key, base_url=url)
+message = [{"role": "user", "content": ''}]
 
 def get_message(text):
-    message = [{"role": "user", "content": text}]
+    message.append({"role": "user", "content": text})
     response = client.chat.completions.create(
         model="deepseek-chat",
         messages=message,
         # stream=True
     )
     message.append(response.choices[0].message)
-    print(message)
+    for char in response.choices[0].message.content:
+        if char == "\n":
+            print()
+        else:
+            print(char, end='', flush=True)
+            time.sleep(0.1)
 
 if __name__ == '__main__':
     while 1:
@@ -24,3 +30,4 @@ if __name__ == '__main__':
             break
         else:
             get_message(text)
+            print()
