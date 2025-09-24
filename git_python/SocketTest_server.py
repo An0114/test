@@ -11,7 +11,6 @@ def main():
         conn, addr = s.accept()
         with conn:
             print('connected by :', addr)
-            # print(s.getpeername())
             print(s.getsockname())
             print(s.gettimeout())
             while True:
@@ -19,7 +18,7 @@ def main():
                 if not data:
                     break
                 else:
-                    print(data)
+                    print(data.decode('utf-8'))
                     push_data = '你好这个世界'
                     conn.sendall(push_data.encode('UTF-8'))
 

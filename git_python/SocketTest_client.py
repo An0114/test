@@ -7,9 +7,10 @@ Port = 50007
 def main():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.connect((Host, Port))
-        s.sendall(b'hello world')
+        msg = 'Hello World!'
+        s.sendall(msg.encode('utf-8'))
         data = s.recv(1024)
-    print('Received', repr(data))
+    print('Received', repr(data.decode('utf-8')))
 
 
 if __name__ == '__main__':
